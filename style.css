@@ -1,6 +1,12 @@
 /* ---------------------------------------------------
    UTDR Castellano — tokens
 --------------------------------------------------- */
+@font-face {
+  font-family: 'UTFont';
+  src: url('utfont.ttf') format('truetype');
+  font-size: 20px;
+}
+
 :root {
   --bg: #0b0b10;
   --bg-panel: #131319;
@@ -17,8 +23,8 @@
   --radius: 14px;
   --radius-sm: 8px;
 
-  --font-display: "Silkscreen", monospace;
-  --font-body: "Inter", system-ui, sans-serif;
+  --font-display: "UTFont", "Silkscreen", monospace;
+  --font-body: "UTFont", "Inter", system-ui, sans-serif;
 
   --max-width: 1080px;
 }
@@ -220,7 +226,7 @@ a:hover { text-decoration: underline; }
 
 @keyframes type-in {
   from { width: 0; }
-  to { width: 38ch; }
+  to { width: 43ch; }
 }
 @keyframes caret-blink {
   50% { border-color: transparent; }
@@ -274,7 +280,8 @@ a:hover { text-decoration: underline; }
 
 .btn-ghost {
   border-color: var(--border);
-  color: var(--fg);
+  background: rgb(76, 96, 168);
+  color: #fff
 }
 .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
 
