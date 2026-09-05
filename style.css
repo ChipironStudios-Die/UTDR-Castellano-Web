@@ -34,6 +34,7 @@
 html {
   scroll-behavior: smooth;
   font-size: 18px;
+  overflow-x: hidden;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -47,6 +48,7 @@ body {
   font-family: var(--font-body);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
   background-color: var(--bg);
   background-image:
     linear-gradient(rgba(11, 11, 16, 0.85), rgba(11, 11, 16, 0.85)),
@@ -224,6 +226,7 @@ a:hover { text-decoration: underline; }
 
 #heroEyebrow {
   display: inline-block;
+  max-width: 100%;
   min-height: 1.4em;
   white-space: nowrap;
   overflow: hidden;
@@ -519,6 +522,8 @@ a:hover { text-decoration: underline; }
 
 @media (max-width: 640px) {
   body { background-attachment: scroll; }
+
+  #heroEyebrow { font-size: 0.68rem; }
 
   .nav-toggle { display: flex; }
   .primary-nav {
