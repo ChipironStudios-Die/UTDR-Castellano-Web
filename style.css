@@ -33,6 +33,7 @@
 
 html {
   scroll-behavior: smooth;
+  font-size: 18px;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -216,18 +217,15 @@ a:hover { text-decoration: underline; }
 }
 
 #heroEyebrow {
+  display: inline-block;
   min-height: 1.4em;
   white-space: nowrap;
   overflow: hidden;
   border-right: 2px solid var(--gold);
   width: 0;
-  animation: type-in 1.8s steps(38, end) forwards, caret-blink 0.8s step-end infinite;
+  animation: caret-blink 0.8s step-end infinite;
 }
 
-@keyframes type-in {
-  from { width: 0; }
-  to { width: 43ch; }
-}
 @keyframes caret-blink {
   50% { border-color: transparent; }
 }
