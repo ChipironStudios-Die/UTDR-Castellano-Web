@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setHeroEyebrowText();
   setupNavToggle();
   setupAccordion();
+  setupScrollAnimations();
 });
 
 // El texto de la máquina de escribir necesita el texto real en el DOM
@@ -79,4 +80,23 @@ function setupAccordion() {
       panel.style.maxHeight = isOpen ? null : `${panel.scrollHeight}px`;
     });
   });
+}
+
+// Las tarjetas son visibles por defecto; el observador solo añade movimiento
+// cuando entran en pantalla, sin depender de JavaScript para mostrar contenido.
+function setupScrollAnimations() {
+  if (!("IntersectionObserver" in window) ||
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("has-entered");
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll(
+    ".news-card, .section-text, .stat-box, .game-card, .role-card, .accordion-item"
+  ).forEach((element) => observer.observe(element));
 }
